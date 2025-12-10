@@ -478,6 +478,7 @@ cmdHelp :: Env -> [String] -> IO ()
 cmdHelp _ _ = putStrLn "\
   \Available commands:\n\
   \  mcabal [FLAGS] build [--git=URL [--dir=DIR]] [PKG]    build in current directory, or the package PKG\n\
+  \  mcabal [FLAGS] test                                   build and run tests in current directory\n\
   \  mcabal [FLAGS] clean                                  clean in the current directory\n\
   \  mcabal [FLAGS] fetch [--git=URL [--dir=DIR]] PKG      fetch files for package PKG\n\
   \  mcabal [FLAGS] help                                   show this message\n\
