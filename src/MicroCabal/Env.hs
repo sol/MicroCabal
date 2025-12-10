@@ -39,7 +39,7 @@ data Backend = Backend {
   buildPkgExe    :: Env -> Section -> Section -> IO (),     -- build executable the current directory
   buildPkgLib    :: Env -> Section -> Section -> IO (),     -- build the package in the current directory
   buildPkgForLib :: Env -> Section -> Section -> IO (),     -- build the foreign-library in the current directory
-  installPkgExe  :: Env -> Section -> Section -> IO (),     -- install the package from the current directory
+  installPkgExe  :: Env -> Section -> Section -> IO FilePath, -- install the package from the current directory
   installPkgLib  :: Env -> Section -> Section -> IO ()      -- install the package from the current directory
   }
 
