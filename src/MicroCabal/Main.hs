@@ -301,7 +301,7 @@ build env = do
       sectLib s@(Section "library"         _ _) | TgtLib `elem` targets env && isBuildable s = buildLib env glob s
       sectLib s@(Section "foreign-library" _ _) | TgtFor `elem` targets env && isBuildable s = buildForeignLib env glob s
       sectLib _ = return Nothing
-      sectExe ll s@(Section "executable"   _ _) | TgtExe `elem` targets env && void $ isBuildable s = buildExe env glob s ll
+      sectExe ll s@(Section "executable"   _ _) | TgtExe `elem` targets env && isBuildable s = void $ buildExe env glob s ll
       sectExe _ _ = return ()
       sectTst ll s@(Section "test-suite"   _ _) | TgtTst `elem` targets env && isBuildable s = buildExe env glob s ll >>= cmd env
       sectTst _ _ = return ()
