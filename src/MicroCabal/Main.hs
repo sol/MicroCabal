@@ -30,6 +30,7 @@ main = do
     [] -> usage
     ["--version"]  -> putStrLn version
     "build"   : as -> decodeGit cmdBuild   env as
+    "test"    : as ->           cmdBuild   env as
     "clean"   : as ->           cmdClean   env as
     "fetch"   : as -> decodeGit cmdFetch   env as
     "help"    : as ->           cmdHelp    env as
