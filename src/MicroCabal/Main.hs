@@ -259,7 +259,7 @@ cmdBuild env [apkg] = do
 cmdBuild _ _ = usage
 
 cmdTest :: Env -> [String] -> IO ()
-cmdTest env [] = build env { targets = TgtTst : env.targets }
+cmdTest env [] = build env { targets = TgtTst : targets env }
 cmdTest _ _ = usage
 
 getGlobal :: Cabal -> Section
