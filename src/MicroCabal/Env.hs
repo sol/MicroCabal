@@ -25,7 +25,7 @@ data Env = Env {
   subDir     :: Maybe String        -- subdirectory of git repo
   }
 
-data Target = TgtLib | TgtFor | TgtExe
+data Target = TgtLib | TgtFor | TgtExe | TgtTst
   deriving (Eq)
 
 data Backend = Backend {
