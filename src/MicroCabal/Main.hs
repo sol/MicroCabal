@@ -303,6 +303,9 @@ build env = do
       sectLib _ = return Nothing
       sectExe ll s@(Section "executable"      _ _) | TgtExe `elem` targets env && isBuildable s = buildExe env glob s ll
       sectExe _ _ = return ()
+      sectExe ll s@(Section "test-suite"      _ _) | TgtTst `elem` targets env && isBuildable s = do
+        buildExe env glob s ll
+      sectExe _ _ = return ()
       sects' = addMissing sects
   message env 3 $ "Unnormalized Cabal file:\n" ++ show cbl
   message env 2 $ "Normalized Cabal file:\n" ++ show ncbl
