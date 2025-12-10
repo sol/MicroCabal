@@ -317,7 +317,7 @@ build env = do
 isBuildable :: Section -> Bool
 isBuildable (Section _ _ flds) = getFieldBool True flds "buildable"
 
-buildExe :: Env -> Section -> Section -> [Name] -> IO ()
+buildExe :: Env -> Section -> Section -> [Name] -> IO FilePath
 buildExe env glob@(Section _ _ sglob) sect@(Section _ name flds) localLibs = do
   message env 0 $ "Building executable " ++ name
   createPathFile env glob sect
