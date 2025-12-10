@@ -258,6 +258,10 @@ cmdBuild env [apkg] = do
   cmdBuild env []
 cmdBuild _ _ = usage
 
+cmdTest :: Env -> [String] -> IO ()
+cmdTest env [] = build env { targets = TgtTst : env.targets }
+cmdTest _ _ = usage
+
 getGlobal :: Cabal -> Section
 getGlobal (Cabal sects) =
   fromMaybe (error "no global section") $ listToMaybe [ s | s@(Section "global" _ _) <- sects ]
